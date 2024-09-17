@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GROUP2 - DSCR</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #c4c1c1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      padding: 5%;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    .quiz-container {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      max-width: 600px;
+      width: 100%;
+      min-height: 750px;
+      overflow-y: auto;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .question {
+      margin-bottom: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #444;
+      padding: 10px;
+      background-color: #f9f9f9;
+      border-left: 5px solid #007BFF;
+    }
+
+    .answers {
+      list-style: none;
+      padding: 0;
+    }
+
+    .answers label {
+      display: block;
+      margin-bottom: 5px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #f0f8ff;
+      transition: background-color 0.3s;
+    }
+    
+    .answers label:hover {
+    background-color: #e0eaff;
+  }
+
+    #results {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 25px;
+      font-weight: bold;
+    color: #333;
+    }
+
+    #timer {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      color: #555;
+    }
+    
+    .correct-answer {
+      color: green;
+      font-weight: bold;
+    }
+
+    .incorrect-answer {
+      color: red;
+      font-weight: bold;
+    }
+
+    #start-quiz {
+    display: block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  #start-quiz:hover {
+    background-color: #0056b3;
+  }
+
+    #quiz{
+      margin-top:2%;
+    }
+    .question{
+      margin-top: 2%;
+    }
+    .blur {
+      filter: blur(5px);
+    }
+
+    .name-input-container {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .name-input-container label {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .name-input-container input {
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 400px;
+  }
+
+  .reminder {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #555;
+    text-align: center;
+    font-style: italic;
+  }
+  </style>
+</head>
+<body>
+
+  <div class="quiz-container">
+    <h1>DSCR QUIZ - GROUP2</h1>
+    <div class="name-input-container">
+      <label for="nameInput">Enter your SURNAME:</label>
+      <input type="text" id="nameInput" placeholder="Your SURNAME here">
+    </div>
+    <h4 class="reminder">Reminder: Starting the quiz will start the timer. Finish on time! :) <br>The quiz will auto-submit when the timer ends.</h4>
+    <center><button id="start-quiz">Start Quiz</button></center>
+    <div id="quiz"></div>
+    <div id="timer">Timer: <span id="timer-count">15:00</span></div>
+    <div id="results"></div>
+    <div id="detailed-results"></div> 
+  </div>
+
+  <script>
+  const _0xaf0cea=_0x5017;(function(_0xecd3ff,_0x41cef0){const _0xef428a=_0x5017,_0x335004=_0xecd3ff();while(!![]){try{const _0x528072=parseInt(_0xef428a(0x19d))/0x1*(parseInt(_0xef428a(0x146))/0x2)+-parseInt(_0xef428a(0x14e))/0x3+-parseInt(_0xef428a(0x166))/0x4+-parseInt(_0xef428a(0x188))/0x5*(parseInt(_0xef428a(0x197))/0x6)+-parseInt(_0xef428a(0x1a9))/0x7+-parseInt(_0xef428a(0x16d))/0x8*(parseInt(_0xef428a(0x147))/0x9)+parseInt(_0xef428a(0x160))/0xa*(parseInt(_0xef428a(0x177))/0xb);if(_0x528072===_0x41cef0)break;else _0x335004['push'](_0x335004['shift']());}catch(_0x19574e){_0x335004['push'](_0x335004['shift']());}}}(_0x51b4,0x53ad9));function _0x5017(_0x70871f,_0x59bb98){const _0x51b422=_0x51b4();return _0x5017=function(_0x501792,_0x2e1d94){_0x501792=_0x501792-0x13f;let _0x34c866=_0x51b422[_0x501792];return _0x34c866;},_0x5017(_0x70871f,_0x59bb98);}const quizData=[{'question':_0xaf0cea(0x149),'answers':{'a':_0xaf0cea(0x180),'b':_0xaf0cea(0x14c),'c':_0xaf0cea(0x1a4),'d':'Complement'},'correctAnswer':'b'},{'question':_0xaf0cea(0x141),'answers':{'a':_0xaf0cea(0x14c),'b':'Difference','c':_0xaf0cea(0x180),'d':'Cartesian\x20Product'},'correctAnswer':'c'},{'question':'3.\x20Which\x20operation\x20finds\x20elements\x20that\x20are\x20in\x20the\x20first\x20set\x20but\x20not\x20in\x20the\x20second?','answers':{'a':_0xaf0cea(0x187),'b':_0xaf0cea(0x14c),'c':_0xaf0cea(0x1a4),'d':_0xaf0cea(0x180)},'correctAnswer':'c'},{'question':_0xaf0cea(0x150),'answers':{'a':_0xaf0cea(0x180),'b':_0xaf0cea(0x1a4),'c':'Union','d':_0xaf0cea(0x187)},'correctAnswer':'d'},{'question':_0xaf0cea(0x183),'answers':{'a':_0xaf0cea(0x157),'b':_0xaf0cea(0x14c),'c':_0xaf0cea(0x180),'d':_0xaf0cea(0x187)},'correctAnswer':'a'},{'question':_0xaf0cea(0x170),'answers':{'a':_0xaf0cea(0x19f),'b':_0xaf0cea(0x161),'c':_0xaf0cea(0x156),'d':_0xaf0cea(0x17b)},'correctAnswer':'b'},{'question':_0xaf0cea(0x15e),'answers':{'a':_0xaf0cea(0x16b),'b':_0xaf0cea(0x142),'c':_0xaf0cea(0x154),'d':_0xaf0cea(0x152)},'correctAnswer':'b'},{'question':'8.\x20Which\x20of\x20the\x20following\x20statements\x20is\x20true?','answers':{'a':_0xaf0cea(0x185),'b':_0xaf0cea(0x16a),'c':_0xaf0cea(0x178),'d':_0xaf0cea(0x19c)},'correctAnswer':'c'},{'question':_0xaf0cea(0x196),'answers':{'a':'{{a},\x20{b}}','b':_0xaf0cea(0x1a8),'c':_0xaf0cea(0x17a),'d':'{{},\x20{a},\x20{b}}'},'correctAnswer':'b'},{'question':_0xaf0cea(0x140),'answers':{'a':'A\x20is\x20a\x20proper\x20subset\x20of\x20B','b':_0xaf0cea(0x15f),'c':_0xaf0cea(0x1a0),'d':_0xaf0cea(0x16f)},'correctAnswer':'a'},{'question':_0xaf0cea(0x17e),'answers':{'a':_0xaf0cea(0x193),'b':_0xaf0cea(0x1a5),'c':_0xaf0cea(0x164),'d':_0xaf0cea(0x144)},'correctAnswer':'a'},{'question':_0xaf0cea(0x167),'answers':{'a':_0xaf0cea(0x17d),'b':'Associative\x20Property','c':_0xaf0cea(0x178),'d':_0xaf0cea(0x19c)},'correctAnswer':'c'},{'question':'13.\x20If\x20A\x20is\x20a\x20subset\x20of\x20B,\x20what\x20is\x20the\x20result\x20of\x20A\x20∩\x20B\x20(A\x20intersect\x20B)?','answers':{'a':'A','b':'B','c':'The\x20empty\x20set','d':_0xaf0cea(0x176)},'correctAnswer':'a'},{'question':_0xaf0cea(0x171),'answers':{'a':_0xaf0cea(0x155),'b':'n!','c':_0xaf0cea(0x191),'d':'n^2'},'correctAnswer':'a'},{'question':_0xaf0cea(0x174),'answers':{'a':_0xaf0cea(0x13f),'b':'2^11','c':_0xaf0cea(0x15c),'d':_0xaf0cea(0x148)},'correctAnswer':'b'}];document[_0xaf0cea(0x14f)](_0xaf0cea(0x162),function(_0x4d3d7a){const _0x2c1162=_0xaf0cea;_0x4d3d7a[_0x2c1162(0x153)]();}),document[_0xaf0cea(0x182)]=function(_0x143025){const _0x10c96d=_0xaf0cea;_0x143025['key']===_0x10c96d(0x151)&&_0x143025[_0x10c96d(0x153)](),_0x143025[_0x10c96d(0x18c)]&&_0x143025['shiftKey']&&_0x143025[_0x10c96d(0x18b)]==='I'&&_0x143025['preventDefault'](),_0x143025['ctrlKey']&&_0x143025['shiftKey']&&_0x143025[_0x10c96d(0x18b)]==='J'&&_0x143025['preventDefault'](),_0x143025[_0x10c96d(0x18c)]&&_0x143025['key']==='U'&&_0x143025[_0x10c96d(0x153)]();};function buildQuiz(){const _0x4378b9=_0xaf0cea,_0x5276ce=document['getElementById']('quiz'),_0x19e9d2=[];quizData[_0x4378b9(0x15a)]((_0x4f8cbd,_0x550fc9)=>{const _0x46fc18=_0x4378b9,_0x36c4ce=[];for(letter in _0x4f8cbd[_0x46fc18(0x16c)]){_0x36c4ce['push'](_0x46fc18(0x198)+_0x550fc9+'\x22\x20value=\x22'+letter+_0x46fc18(0x175)+letter+_0x46fc18(0x163)+_0x4f8cbd[_0x46fc18(0x16c)][letter]+_0x46fc18(0x194));}_0x19e9d2[_0x46fc18(0x159)](_0x46fc18(0x17c)+_0x4f8cbd[_0x46fc18(0x18e)]+'</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22answers\x22>'+_0x36c4ce['join']('')+_0x46fc18(0x14a));}),_0x5276ce['innerHTML']=_0x19e9d2[_0x4378b9(0x15d)]('');}function showResults(){const _0x504697=_0xaf0cea,_0x3af279=document[_0x504697(0x173)]('nameInput')[_0x504697(0x190)],_0x1f7c95=document[_0x504697(0x1a1)](_0x504697(0x172));let _0x10cc61=0x0;const _0x2a7fd4=[];quizData[_0x504697(0x15a)]((_0x563926,_0xd756c3)=>{const _0x52137e=_0x504697,_0x343485=_0x1f7c95[_0xd756c3],_0x4be260='input[name=question'+_0xd756c3+']:checked',_0x26e853=(_0x343485['querySelector'](_0x4be260)||{})[_0x52137e(0x190)];_0x26e853===_0x563926[_0x52137e(0x179)]?_0x10cc61++:_0x2a7fd4[_0x52137e(0x159)]({'question':_0x563926[_0x52137e(0x18e)],'userAnswer':_0x26e853||_0x52137e(0x145),'correctAnswer':_0x563926[_0x52137e(0x179)],'answers':_0x563926['answers']});});const _0x1222b5=_0x3af279?_0x3af279+_0x504697(0x181)+_0x10cc61+_0x504697(0x1a7)+quizData['length']+'\x20correct.':_0x504697(0x165)+_0x10cc61+_0x504697(0x1a7)+quizData[_0x504697(0x19a)]+_0x504697(0x184);document[_0x504697(0x173)](_0x504697(0x186))['innerHTML']=_0x1222b5,setTimeout(()=>displayDetailedResults(_0x2a7fd4),0x493e0);}function displayDetailedResults(_0x554128){const _0xfd17f1=_0xaf0cea,_0x376344=document[_0xfd17f1(0x173)](_0xfd17f1(0x14d)),_0x5aade5=[];_0x554128[_0xfd17f1(0x15a)](_0x516066=>{const _0x4bea92=_0xfd17f1,_0x2a571b=_0x516066[_0x4bea92(0x16c)][_0x516066[_0x4bea92(0x168)]]||_0x4bea92(0x145),_0x192b73=_0x516066[_0x4bea92(0x16c)][_0x516066[_0x4bea92(0x179)]];_0x5aade5[_0x4bea92(0x159)](_0x4bea92(0x17c)+_0x516066[_0x4bea92(0x18e)]+_0x4bea92(0x16e)+_0x516066[_0x4bea92(0x168)]+')\x20'+_0x2a571b+_0x4bea92(0x1a6)+_0x516066['correctAnswer']+')\x20'+_0x192b73+_0x4bea92(0x18a));}),_0x376344[_0xfd17f1(0x18d)]=_0x5aade5['join']('');}function _0x51b4(){const _0x4ea96a=['138982cMKsBm','27gMFjyg','2^n,\x20where\x20n\x20is\x20the\x20total\x20number\x20of\x20elements\x20in\x20the\x20set','1.\x20What\x20operation\x20combines\x20all\x20elements\x20from\x20two\x20sets,\x20including\x20duplicates?','</div>','scrollHeight','Union','detailed-results','1081152UtHnIg','addEventListener','4.\x20What\x20operation\x20refers\x20to\x20all\x20elements\x20in\x20the\x20universal\x20set\x20that\x20are\x20not\x20in\x20a\x20particular\x20set?','F12','A\x20and\x20B\x20are\x20disjoint\x20sets','preventDefault','A\x20is\x20equal\x20to\x20B','2^n,\x20where\x20n\x20is\x20the\x20number\x20of\x20elements\x20in\x20the\x20set','{4,\x205}','Cartesian\x20Product','classList','push','forEach','body','11^2','join','7.\x20If\x20A\x20=\x20{2,\x204,\x206,\x208}\x20and\x20B\x20=\x20{4,\x208},\x20what\x20is\x20the\x20relationship\x20between\x20A\x20and\x20B?','B\x20is\x20a\x20proper\x20subset\x20of\x20A','8810yGJlrO','{1,\x202}','contextmenu','\x20:\x20','Elements\x20that\x20are\x20in\x20A\x20but\x20not\x20in\x20B','You\x20got\x20','1992632oKNyIn','12.\x20Which\x20of\x20the\x20following\x20properties\x20holds\x20true\x20for\x20the\x20intersection\x20of\x20sets?','userAnswer','remove','The\x20empty\x20set\x20is\x20a\x20subset\x20of\x20every\x20set','A\x20is\x20a\x20subset\x20of\x20B','answers','610048OhaMKE','</div>\x0a\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22incorrect-answer\x22>Your\x20Answer:\x20(','A\x20and\x20B\x20are\x20disjoint','6.\x20Which\x20of\x20the\x20following\x20is\x20a\x20subset\x20of\x20the\x20set\x20{1,\x202,\x203}?','14.\x20If\x20you\x20want\x20to\x20find\x20the\x20total\x20number\x20of\x20subsets\x20of\x20a\x20set\x20with\x209\x20elements,\x20which\x20formula\x20should\x20you\x20use?','.answers','getElementById','15.\x20For\x20a\x20set\x20with\x2011\x20elements,\x20how\x20many\x20subsets\x20(including\x20the\x20empty\x20set)\x20can\x20be\x20formed?','\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','A\x20∪\x20B','25421MCEdYt','Both\x20a)\x20and\x20b)','correctAnswer','{{a,\x20b}}','{0,\x201}','<div\x20class=\x22question\x22>','Commutative\x20Property','11.\x20What\x20is\x20the\x20result\x20of\x20the\x20union\x20of\x20two\x20sets\x20A\x20and\x20B?','querySelector','Intersection',',\x20you\x20got\x20','onkeydown','5.\x20What\x20operation\x20pairs\x20each\x20element\x20of\x20one\x20set\x20with\x20every\x20element\x20of\x20another\x20set,\x20forming\x20ordered\x20pairs?','\x20correct.','Every\x20set\x20is\x20a\x20subset\x20of\x20itself','results','Complement','203185ddilxy','Please\x20enter\x20your\x20surname\x20to\x20start\x20the\x20quiz.','</div><br>','key','ctrlKey','innerHTML','question','nameInput','value','n(n\x20-\x201)/2','blur','Elements\x20that\x20are\x20in\x20A\x20or\x20B\x20or\x20both','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</label>','textContent','9.\x20What\x20is\x20the\x20power\x20set\x20of\x20{a,\x20b}?','84cApubv','<label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22radio\x22\x20name=\x22question','style','length','trim','None\x20of\x20the\x20above','5yFBEtw','#timer-count','{1,\x202,\x203,\x204}','A\x20and\x20B\x20are\x20equal','querySelectorAll','click','scrollTo','Difference','Elements\x20that\x20are\x20in\x20both\x20A\x20and\x20B','</div>\x0a\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22correct-answer\x22>Correct\x20Answer:\x20(','\x20out\x20of\x20','{{},\x20{a},\x20{b},\x20{a,\x20b}}','2691311sxEnex','11!','10.\x20If\x20A\x20=\x20{1,\x202,\x203}\x20and\x20B\x20=\x20{1,\x202,\x203,\x204},\x20which\x20of\x20the\x20following\x20is\x20true?','2.\x20What\x20operation\x20gives\x20only\x20the\x20common\x20elements\x20between\x20two\x20sets?','B\x20is\x20a\x20subset\x20of\x20A','none','Elements\x20that\x20are\x20in\x20B\x20but\x20not\x20in\x20A','None'];_0x51b4=function(){return _0x4ea96a;};return _0x51b4();}function startTimer(_0x4f10d2,_0x338cc1){let _0x58336a=_0x4f10d2,_0x5c8db0,_0xce53bb;const _0x26fbb1=setInterval(function(){const _0x2a45bd=_0x5017;_0x5c8db0=parseInt(_0x58336a/0x3c,0xa),_0xce53bb=parseInt(_0x58336a%0x3c,0xa),_0x5c8db0=_0x5c8db0<0xa?'0'+_0x5c8db0:_0x5c8db0,_0xce53bb=_0xce53bb<0xa?'0'+_0xce53bb:_0xce53bb,_0x338cc1[_0x2a45bd(0x195)]=_0x5c8db0+':'+_0xce53bb,--_0x58336a<0x0&&(clearInterval(_0x26fbb1),window[_0x2a45bd(0x1a3)](0x0,document[_0x2a45bd(0x15b)][_0x2a45bd(0x14b)]),showResults());},0x3e8);}document[_0xaf0cea(0x173)]('start-quiz')['addEventListener'](_0xaf0cea(0x1a2),function(){const _0x16770e=_0xaf0cea,_0x18acf8=document[_0x16770e(0x173)](_0x16770e(0x18f))[_0x16770e(0x190)];if(_0x18acf8[_0x16770e(0x19b)]()===''){alert(_0x16770e(0x189));return;}document['getElementById']('quiz')[_0x16770e(0x158)][_0x16770e(0x169)](_0x16770e(0x192)),this[_0x16770e(0x199)]['display']=_0x16770e(0x143),buildQuiz();const _0x1c5745=0x3c*0xf,_0x2dbce4=document[_0x16770e(0x17f)](_0x16770e(0x19e));startTimer(_0x1c5745,_0x2dbce4);});
+  </script>
+</body>
+</html>
